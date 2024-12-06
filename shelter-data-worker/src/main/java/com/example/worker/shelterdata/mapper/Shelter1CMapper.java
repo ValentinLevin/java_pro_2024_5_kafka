@@ -1,6 +1,6 @@
 package com.example.worker.shelterdata.mapper;
 
-import com.example.core.kafka.dto.KafkaShelterDTO;
+import com.example.core.dto.KafkaShelterDTO;
 import com.example.worker.shelterdata.model.Shelter1CModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

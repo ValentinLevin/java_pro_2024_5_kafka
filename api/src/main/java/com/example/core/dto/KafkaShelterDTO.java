@@ -1,4 +1,4 @@
-package com.example.core.kafka.dto;
+package com.example.core.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

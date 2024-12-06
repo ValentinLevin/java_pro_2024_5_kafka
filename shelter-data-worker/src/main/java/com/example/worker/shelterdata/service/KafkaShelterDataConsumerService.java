@@ -1,6 +1,6 @@
 package com.example.worker.shelterdata.service;
 
-import com.example.core.kafka.dto.KafkaShelterDTO;
+import com.example.core.dto.KafkaShelterDTO;
 import com.example.worker.shelterdata.mapper.Shelter1CMapper;
 import com.example.worker.shelterdata.model.Shelter1CModel;
 import lombok.extern.slf4j.Slf4j;

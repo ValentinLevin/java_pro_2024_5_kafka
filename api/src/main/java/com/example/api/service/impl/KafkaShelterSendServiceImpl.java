@@ -3,7 +3,7 @@ package com.example.api.service.impl;
 import com.example.api.mapper.KafkaShelterDTOMapper;
 import com.example.api.model.ShelterModel;
 import com.example.api.service.KafkaShelterSendService;
-import com.example.core.kafka.dto.KafkaShelterDTO;
+import com.example.core.dto.KafkaShelterDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

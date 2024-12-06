@@ -17,7 +17,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>core</module>
         <module>api</module>
         <module>shelter-data-worker</module>
     </modules>

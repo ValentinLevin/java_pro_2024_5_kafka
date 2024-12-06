@@ -1,7 +1,6 @@
 package com.example.worker.shelterdata.config;
 
-import com.example.core.kafka.config.KafkaShelterDataConnectionParams;
-import com.example.core.kafka.dto.KafkaShelterDTO;
+import com.example.core.dto.KafkaShelterDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,22 +19,22 @@ import java.util.Map;
 @Configuration
 @EnableKafka
 public class KafkaConsumerConfig {
-    private final KafkaShelterDataConnectionParams kafkaShelterDataConnectionParams;
+    private final String bootstrapServers;
     private final String groupId;
 
     public KafkaConsumerConfig(
-            KafkaShelterDataConnectionParams kafkaShelterDataConnectionParams,
+            @Value("${spring.kafka.bootstrap-servers}") String bootstrapServers,
             @Value("${spring.kafka.consumer.group-id}") String groupId
     ) {
-        this.kafkaShelterDataConnectionParams = kafkaShelterDataConnectionParams;
         this.groupId = groupId;
+        this.bootstrapServers = bootstrapServers;
     }
 
     @Bean
     public ConsumerFactory<String, KafkaShelterDTO> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
 
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaShelterDataConnectionParams.getBootstrapServers());
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, this.bootstrapServers);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
